@@ -1,0 +1,50 @@
+<RelativeLayout
+    layout_width="wrap_content"
+    layout_height="wrap_content">
+
+    <ImageView
+        id="@+id/ivMain"
+        layout_width="439px"
+        layout_height="90px"
+        tag="main" />
+
+    <TextView
+        id="@+id/tvAddress"
+        layout_width="wrap_content"
+        layout_height="wrap_content"
+        layout_marginTop="8dp"
+        textSize="12sp"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_below="@+id/ivMain" />
+
+    <TextView
+        id="@+id/tvDate"
+        layout_width="wrap_content"
+        layout_height="wrap_content"
+        textSize="12sp"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_below="@+id/tvAddress" />
+
+    <TextView
+        id="@+id/tvLatitude"
+        layout_width="wrap_content"
+        layout_height="wrap_content"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_below="@+id/tvDate" />
+
+    <TextView
+        id="@+id/tvLongitude"
+        layout_width="wrap_content"
+        layout_height="wrap_content"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_below="@+id/tvLatitude" />
+
+</RelativeLayout>

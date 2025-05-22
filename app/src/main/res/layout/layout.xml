@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/black">
+
+    <ImageView
+        android:id="@+id/ivMain"
+        android:layout_width="439px"
+        android:layout_height="90px"
+        android:tag="main" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="439px"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="12sp"
+        android:textColor="#FFFFFFFF"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_below="@+id/ivMain" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="439px"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#FFFFFFFF"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_below="@+id/tvAddress" />
+
+    <TextView
+        android:id="@+id/tvLatitude"
+        android:layout_width="439px"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="#FFFFFFFF"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_below="@+id/tvDate" />
+
+    <TextView
+        android:id="@+id/tvLongitude"
+        android:layout_width="439px"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:textColor="#FFFFFFFF"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_below="@+id/tvLatitude" />
+
+</RelativeLayout>

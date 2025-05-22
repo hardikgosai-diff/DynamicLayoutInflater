@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    layout_width="match_parent"
+    layout_height="wrap_content">
+
+    <ImageView
+        id="@+id/ivText"
+        layout_width="365px"
+        layout_height="99px"
+        layout_marginEnd="16dp"
+        layout_alignParentEnd="true"
+        layout_centerVertical="true"
+        tag="text.png"/>
+
+    <TextView
+        id="@+id/tvDateTime"
+        layout_width="0dp"
+        layout_height="99px"
+        layout_marginStart="170px"
+        layout_marginEnd="8dp"
+        paddingEnd="16dp"
+        paddingStart="32dp"
+        layout_alignParentStart="true"
+        layout_toStartOf="@+id/ivText"
+        layout_centerVertical="true"
+        gravity="center"
+        singleLine="true"
+        ellipsize="end"
+        textColor="#FFFFFFFF"
+        tag="date_time_bg.png" />
+
+    <ImageView
+        id="@+id/ivMain"
+        layout_width="340px"
+        layout_height="340px"
+        tag="main.png"/>
+
+    <LinearLayout
+        layout_width="0dp"
+        layout_height="wrap_content"
+        layout_marginTop="16dp"
+        layout_marginEnd="16dp"
+        layout_marginBottom="16dp"
+        orientation="horizontal"
+        gravity="start|center"
+        layout_toEndOf="@id/ivMain"
+        layout_alignParentEnd="true"
+        layout_alignBottom="@id/ivMain">
+
+        <ImageView
+            id="@+id/ivMarker"
+            layout_width="40px"
+            layout_height="40px"
+            tag="marker.png"/>
+
+        <TextView
+            id="@+id/tvAddress"
+            layout_width="wrap_content"
+            layout_height="wrap_content"
+            layout_marginStart="8dp"
+            gravity="center"
+            textColor="#FFFFFFFF"
+            singleLine="true"
+            ellipsize="end" />
+
+    </LinearLayout>
+
+</RelativeLayout>

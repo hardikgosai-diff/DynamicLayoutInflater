@@ -1,0 +1,138 @@
+<RelativeLayout
+    layout_width="match_parent"
+    layout_height="wrap_content"
+    padding="8dp">
+
+    <ImageView
+        id="@+id/ivMain"
+        layout_width="230px"
+        layout_height="230px"
+        tag="main.png"/>
+
+    <FrameLayout
+        id="@+id/divider"
+        layout_width="1px"
+        layout_height="230px"
+        background="#FFFFFF"
+        layout_centerInParent="true" />
+
+    <TextView
+        id="@+id/tvLatitudeLabel"
+        layout_width="0dp"
+        layout_height="wrap_content"
+        layout_marginStart="8dp"
+        layout_marginEnd="8dp"
+        text="Latitude"
+        textSize="12sp"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_toStartOf="@id/divider"
+        layout_toEndOf="@+id/ivMain" />
+
+    <TextView
+        id="@+id/tvLatitude"
+        layout_width="0dp"
+        layout_height="wrap_content"
+        layout_marginTop="4dp"
+        layout_marginStart="8dp"
+        layout_marginEnd="8dp"
+        textSize="12sp"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_toStartOf="@id/divider"
+        layout_toEndOf="@+id/ivMain"
+        layout_below="@id/tvLatitudeLabel" />
+
+    <TextView
+        id="@+id/tvLongitude"
+        layout_width="0dp"
+        layout_height="wrap_content"
+        layout_marginStart="8dp"
+        layout_marginEnd="8dp"
+        textSize="12sp"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_toStartOf="@id/divider"
+        layout_toEndOf="@+id/ivMain"
+        layout_alignBottom="@id/ivMain" />
+
+    <TextView
+        id="@+id/tvLongitudeLabel"
+        layout_width="0dp"
+        layout_height="wrap_content"
+        layout_marginStart="8dp"
+        layout_marginEnd="8dp"
+        layout_marginBottom="4dp"
+        text="Longitude"
+        textSize="12sp"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_toStartOf="@id/divider"
+        layout_toEndOf="@+id/ivMain"
+        layout_above="@id/tvLongitude" />
+
+    <ImageView
+        id="@+id/ivSmall"
+        layout_width="70px"
+        layout_height="70px"
+        layout_marginStart="8dp"
+        layout_toEndOf="@+id/divider"
+        tag="small.png"/>
+
+    <TextView
+        id="@+id/tvDegree"
+        layout_width="wrap_content"
+        layout_height="wrap_content"
+        layout_marginStart="8dp"
+        textSize="12sp"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_toEndOf="@id/ivSmall" />
+
+    <TextView
+        id="@+id/tvTime"
+        layout_width="0dp"
+        layout_height="wrap_content"
+        layout_marginStart="8dp"
+        layout_toEndOf="@id/tvDegree"
+        layout_alignParentEnd="true"
+        textSize="12sp"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end" />
+
+    <TextView
+        id="@+id/tvDate"
+        layout_width="0dp"
+        layout_height="wrap_content"
+        layout_marginStart="8dp"
+        gravity="center"
+        textSize="12sp"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_alignParentEnd="true"
+        layout_toEndOf="@+id/divider"
+        layout_alignBottom="@+id/ivMain" />
+
+    <TextView
+        id="@+id/tvAddress"
+        layout_width="0dp"
+        layout_height="wrap_content"
+        layout_marginStart="8dp"
+        gravity="center"
+        textSize="12sp"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        layout_alignParentEnd="true"
+        layout_toEndOf="@+id/divider"
+        layout_above="@id/tvDate"
+        layout_below="@+id/ivSmall" />
+
+</RelativeLayout>
