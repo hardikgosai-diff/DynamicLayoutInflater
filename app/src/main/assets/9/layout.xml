@@ -6,7 +6,7 @@
         id="@+id/ivMain"
         layout_width="439px"
         layout_height="90px"
-        tag="main" />
+        tag="main.png" />
 
     <TextView
         id="@+id/tvAddress"

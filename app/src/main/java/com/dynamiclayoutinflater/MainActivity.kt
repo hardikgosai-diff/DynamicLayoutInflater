@@ -4,6 +4,7 @@ import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.graphics.BitmapFactory
 import android.graphics.BlurMaskFilter
 import android.graphics.ImageFormat
+import android.graphics.Typeface
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.os.Handler
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initCamera()
-        initDynamicLayout("9")
+        initDynamicLayout("12")
         Handler().postDelayed({
 
         }, 3000)
@@ -76,32 +77,63 @@ class MainActivity : AppCompatActivity() {
             val ivText = DynamicLayoutInflater.findViewByIdString(view, "ivText")
             val ivMarker = DynamicLayoutInflater.findViewByIdString(view, "ivMarker")
             val divider = DynamicLayoutInflater.findViewByIdString(view, "divider")
+            val ivBg = DynamicLayoutInflater.findViewByIdString(view, "ivBg")
 
             if (ivMain is ImageView) {
                 val bitmap = BitmapFactory.decodeStream(assets.open("$folder/main.png"))
                 ivMain.setImageBitmap(bitmap)
             }
-            if (tvLatitude is TextView) {
-                tvLatitude.text = "20.59370556466"
-            }
-            if (tvLongitude is TextView) {
-                tvLongitude.text = "78.9629464648"
-            }
             if (ivSmall is ImageView) {
                 val bitmap = BitmapFactory.decodeStream(assets.open("$folder/small.png"))
                 ivSmall.setImageBitmap(bitmap)
             }
+            if (tvLatitude is TextView) {
+                tvLatitude.apply {
+                    text = "20.59370556466"
+                    if (tag != null) {
+                        typeface = Typeface.createFromAsset(assets, "$folder/${tag}")
+                    }
+                }
+            }
+            if (tvLongitude is TextView) {
+                tvLongitude.apply {
+                    text = "78.9629464648"
+                    if (tag != null) {
+                        typeface = Typeface.createFromAsset(assets, "$folder/${tag}")
+                    }
+                }
+            }
             if (tvDate is TextView) {
-                tvDate.text = "Wed, 21th May 2025"
+                tvDate.apply {
+                    text = "Wed, 21th May 2025"
+                    if (tag != null) {
+                        typeface = Typeface.createFromAsset(assets, "$folder/${tag}")
+                    }
+                }
             }
             if (tvTime is TextView) {
-                tvTime.text = "06:50 PM"
+                tvTime.apply {
+                    text = "06:50 PM"
+                    if (tag != null) {
+                        typeface = Typeface.createFromAsset(assets, "$folder/${tag}")
+                    }
+                }
             }
             if (tvDegree is TextView) {
-                tvDegree.text = "10 C"
+                tvDegree.apply {
+                    text = "10 C"
+                    if (tag != null) {
+                        typeface = Typeface.createFromAsset(assets, "$folder/${tag}")
+                    }
+                }
             }
             if (tvAddress is TextView) {
-                tvAddress.text = "Surat, Gujarat, India"
+                tvAddress.apply {
+                    text = "Surat, Gujarat, India"
+                    if (tag != null) {
+                        typeface = Typeface.createFromAsset(assets, "$folder/${tag}")
+                    }
+                }
             }
             if (tvDateTime is TextView) {
                 tvDateTime.text = "Wed, 21th May 2025 08:50 PM"
@@ -121,6 +153,14 @@ class MainActivity : AppCompatActivity() {
             if (divider is FrameLayout) {
                 val bitmap = BitmapFactory.decodeStream(assets.open("$folder/divider.png"))
                 divider.background = BitmapDrawable(resources, bitmap)
+            }
+            if (ivBg is ImageView) {
+                ivBg.apply {
+                    if (tag != null) {
+                        val bitmap = BitmapFactory.decodeStream(assets.open("$folder/$tag"))
+                        ivBg.background = BitmapDrawable(resources, bitmap)
+                    }
+                }
             }
         } catch (e: IOException) {
             e.printStackTrace()

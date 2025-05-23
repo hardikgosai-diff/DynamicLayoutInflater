@@ -2,53 +2,165 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:padding="8dp"
     android:background="@color/black">
-
-    <ImageView
-        android:id="@+id/ivMain"
-        android:layout_width="439px"
-        android:layout_height="90px"
-        android:tag="main" />
 
     <TextView
         android:id="@+id/tvAddress"
-        android:layout_width="439px"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="12sp"
-        android:textColor="#FFFFFFFF"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:layout_below="@+id/ivMain" />
-
-    <TextView
-        android:id="@+id/tvDate"
-        android:layout_width="439px"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="#FFFFFFFF"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:layout_below="@+id/tvAddress" />
-
-    <TextView
-        android:id="@+id/tvLatitude"
-        android:layout_width="439px"
-        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:background="#80000000"
+        android:layout_weight="1"
         android:gravity="end"
+        android:text="Surat, Gujarat, India"
         android:textColor="#FFFFFFFF"
         android:singleLine="true"
-        android:ellipsize="end"
-        android:layout_below="@+id/tvDate" />
+        android:ellipsize="end" />
 
-    <TextView
-        android:id="@+id/tvLongitude"
-        android:layout_width="439px"
-        android:layout_height="wrap_content"
-        android:gravity="end"
-        android:textColor="#FFFFFFFF"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:layout_below="@+id/tvLatitude" />
+    <ImageView
+        android:id="@+id/ivMain"
+        android:layout_width="230px"
+        android:layout_height="230px"
+        android:layout_below="@+id/tvAddress"
+        android:src="@drawable/map"
+        android:tag="main.png" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="230px"
+        android:layout_below="@+id/tvAddress"
+        android:padding="8dp"
+        android:background="@drawable/bg"
+        android:layout_centerInParent="true"
+        android:layout_toEndOf="@id/ivMain"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:45 AM"
+                android:textColor="#FFFFFFFF"
+                android:singleLine="true"
+                android:ellipsize="end" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivSmall"
+                    android:layout_width="60px"
+                    android:layout_height="60px"
+                    android:src="@drawable/sun"
+                    android:tag="small.png" />
+
+                <TextView
+                    android:id="@+id/tvDegree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:text="30 C"
+                    android:textColor="#FFFFFFFF"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="end|center"
+                android:text="Fri, 23 May 2025"
+                android:textColor="#FFFFFFFF"
+                android:singleLine="true"
+                android:ellipsize="end" />
+
+            <LinearLayout
+                android:id="@+id/llLat"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:gravity="end|center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lat: "
+                    android:textColor="#FFFFFFFF"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/tvLatitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFFFF"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llLng"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:gravity="end|center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lng: "
+                    android:textColor="#FFFFFFFF"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
+
+                <TextView
+                    android:id="@+id/tvLongitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFFFF"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

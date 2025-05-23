@@ -1,0 +1,95 @@
+<RelativeLayout
+    layout_width="wrap_content"
+    layout_height="wrap_content"
+    padding="8dp">
+
+    <ImageView
+        id="@+id/ivMain"
+        layout_width="230px"
+        layout_height="230px"
+        tag="main.png" />
+
+    <LinearLayout
+        id="@+id/ll"
+        layout_width="0dp"
+        layout_height="230px"
+        layout_marginStart="8dp"
+        padding="8dp"
+        background="#80000000"
+        layout_toEndOf="@id/ivMain"
+        layout_alignParentEnd="true"
+        orientation="horizontal">
+
+        <LinearLayout
+            id="@+id/llDateTimeAddress"
+            layout_width="0dp"
+            layout_height="match_parent"
+            layout_weight="1"
+            orientation="vertical">
+
+            <TextView
+                id="@+id/tvTime"
+                layout_width="match_parent"
+                layout_height="0dp"
+                layout_weight="1"
+                gravity="center_vertical"
+                textColor="#FFFFFFFF"
+                singleLine="true"
+                ellipsize="end"
+                tag="faustina.ttf"/>
+
+            <TextView
+                id="@+id/tvDate"
+                layout_width="match_parent"
+                layout_height="0dp"
+                layout_weight="1"
+                gravity="center_vertical"
+                textColor="#FFFFFFFF"
+                singleLine="true"
+                ellipsize="end"
+                tag="faustina.ttf"/>
+
+            <TextView
+                id="@+id/tvAddress"
+                layout_width="match_parent"
+                layout_height="0dp"
+                layout_weight="1"
+                gravity="center_vertical"
+                textSize="11sp"
+                textColor="#FFFFFFFF"
+                singleLine="true"
+                ellipsize="end" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            id="@+id/llDegree"
+            layout_width="0dp"
+            layout_height="match_parent"
+            layout_weight="0.5"
+            orientation="vertical"
+            gravity="center">
+
+            <ImageView
+                id="@+id/ivSmall"
+                layout_width="80px"
+                layout_height="80px"
+                tag="small.png" />
+
+            <TextView
+                id="@+id/tvDegree"
+                layout_width="wrap_content"
+                layout_height="wrap_content"
+                layout_marginTop="4dp"
+                gravity="center_vertical"
+                textColor="#FFFFFFFF"
+                textSize="22sp"
+                singleLine="true"
+                ellipsize="end"
+                tag="faustina.ttf"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
