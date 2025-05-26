@@ -1,5 +1,7 @@
 package com.dynamiclayoutinflater
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.graphics.BitmapFactory
 import android.graphics.BlurMaskFilter
@@ -12,8 +14,17 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.dynamiclayoutinflater.databinding.ActivityMainBinding
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 import com.otaliastudios.cameraview.frame.Frame
@@ -24,12 +35,19 @@ class MainActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
+    private lateinit var mapView: MapView
+    private lateinit var googleMap: GoogleMap
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        // Create a MapView programmatically
+        mapView = MapView(this)
+        mapView.onCreate(savedInstanceState)
+
         initCamera()
-        initDynamicLayout("12")
+        initDynamicLayout("14")
         Handler().postDelayed({
 
         }, 3000)
@@ -67,7 +85,9 @@ class MainActivity : AppCompatActivity() {
 
             val ivMain = DynamicLayoutInflater.findViewByIdString(view, "ivMain")
             val tvLatitude = DynamicLayoutInflater.findViewByIdString(view, "tvLatitude")
+            val tvLatitudeLabel = DynamicLayoutInflater.findViewByIdString(view, "tvLatitudeLabel")
             val tvLongitude = DynamicLayoutInflater.findViewByIdString(view, "tvLongitude")
+            val tvLongitudeLabel = DynamicLayoutInflater.findViewByIdString(view, "tvLongitudeLabel")
             val ivSmall = DynamicLayoutInflater.findViewByIdString(view, "ivSmall")
             val tvDate = DynamicLayoutInflater.findViewByIdString(view, "tvDate")
             val tvTime = DynamicLayoutInflater.findViewByIdString(view, "tvTime")
@@ -78,18 +98,37 @@ class MainActivity : AppCompatActivity() {
             val ivMarker = DynamicLayoutInflater.findViewByIdString(view, "ivMarker")
             val divider = DynamicLayoutInflater.findViewByIdString(view, "divider")
             val ivBg = DynamicLayoutInflater.findViewByIdString(view, "ivBg")
+            val flMap = DynamicLayoutInflater.findViewByIdString(view, "flMap")
 
             if (ivMain is ImageView) {
-                val bitmap = BitmapFactory.decodeStream(assets.open("$folder/main.png"))
-                ivMain.setImageBitmap(bitmap)
+                if (ivMain.tag != null) {
+                    val bitmap = BitmapFactory.decodeStream(assets.open("$folder/${ivMain.tag}"))
+                    ivMain.setImageBitmap(bitmap)
+                }
             }
             if (ivSmall is ImageView) {
-                val bitmap = BitmapFactory.decodeStream(assets.open("$folder/small.png"))
-                ivSmall.setImageBitmap(bitmap)
+                if (ivSmall.tag != null) {
+                    val bitmap = BitmapFactory.decodeStream(assets.open("$folder/${ivSmall.tag}"))
+                    ivSmall.setImageBitmap(bitmap)
+                }
+            }
+            if (tvLatitudeLabel is TextView) {
+                tvLatitudeLabel.apply {
+                    if (tag != null) {
+                        typeface = Typeface.createFromAsset(assets, "$folder/${tag}")
+                    }
+                }
             }
             if (tvLatitude is TextView) {
                 tvLatitude.apply {
                     text = "20.59370556466"
+                    if (tag != null) {
+                        typeface = Typeface.createFromAsset(assets, "$folder/${tag}")
+                    }
+                }
+            }
+            if (tvLongitudeLabel is TextView) {
+                tvLongitudeLabel.apply {
                     if (tag != null) {
                         typeface = Typeface.createFromAsset(assets, "$folder/${tag}")
                     }
@@ -162,6 +201,12 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+            if (flMap is FrameLayout) {
+                flMap.apply {
+                    addView(mapView)
+                    mapView.getMapAsync(onMapReadyCallback)
+                }
+            }
         } catch (e: IOException) {
             e.printStackTrace()
         }
@@ -194,4 +239,45 @@ class MainActivity : AppCompatActivity() {
             binding.cameraView.open()
         }
     }
+
+    private val onMapReadyCallback = OnMapReadyCallback {
+        googleMap = it
+        googleMap.uiSettings.apply {
+            isScrollGesturesEnabled = false
+            isMapToolbarEnabled = false
+            isMyLocationButtonEnabled = false
+            isZoomControlsEnabled = false
+            isCompassEnabled = false
+            isRotateGesturesEnabled = false
+            isZoomGesturesEnabled = false
+            isTiltGesturesEnabled = false
+        }
+        enableMyLocation()
+    }
+
+    private fun enableMyLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                10
+            )
+        } else {
+            googleMap.isMyLocationEnabled = true
+            val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+                if (location != null) {
+                    val latLng = LatLng(location.latitude, location.longitude)
+                    googleMap.addMarker(MarkerOptions().position(latLng))
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16f))
+                } else {
+                    Toast.makeText(this, "Location not found", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
 }

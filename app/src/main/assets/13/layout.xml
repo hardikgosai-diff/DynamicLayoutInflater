@@ -1,0 +1,156 @@
+<RelativeLayout
+    layout_width="match_parent"
+    layout_height="wrap_content"
+    padding="8dp">
+
+    <TextView
+        id="@+id/tvAddress"
+        layout_width="match_parent"
+        layout_height="wrap_content"
+        padding="4dp"
+        background="#FFFFFFFF"
+        layout_weight="1"
+        gravity="center"
+        textColor="#FF000000"
+        singleLine="true"
+        ellipsize="end"
+        tag="crimsonpro.ttf"/>
+
+    <LinearLayout
+        id="@+id/ll"
+        layout_width="match_parent"
+        layout_height="wrap_content"
+        background="#B3FFFFFF"
+        padding="8dp"
+        layout_below="@+id/tvAddress"
+        orientation="horizontal">
+
+        <LinearLayout
+            id="@+id/ll1"
+            layout_width="0dp"
+            layout_height="match_parent"
+            layout_weight="1"
+            orientation="vertical">
+
+            <TextView
+                id="@+id/tvDate"
+                layout_width="match_parent"
+                layout_height="0dp"
+                layout_weight="1"
+                textColor="#FF000000"
+                singleLine="true"
+                ellipsize="end"
+                tag="crimsonpro.ttf"/>
+
+            <TextView
+                id="@+id/tvTime"
+                layout_width="match_parent"
+                layout_height="0dp"
+                layout_weight="1"
+                textColor="#FF000000"
+                singleLine="true"
+                ellipsize="end"
+                tag="crimsonpro.ttf"/>
+
+            <LinearLayout
+                id="@+id/llLat"
+                layout_width="match_parent"
+                layout_height="0dp"
+                layout_weight="1"
+                layout_marginTop="2dp"
+                orientation="horizontal">
+
+                <TextView
+                    id="@+id/tvLatitudeLabel"
+                    layout_width="wrap_content"
+                    layout_height="wrap_content"
+                    text="Lat: "
+                    textColor="#FF000000"
+                    gravity="center"
+                    singleLine="true"
+                    ellipsize="end"
+                    tag="crimsonpro.ttf"/>
+
+                <TextView
+                    id="@+id/tvLatitude"
+                    layout_width="wrap_content"
+                    layout_height="wrap_content"
+                    textColor="#FF000000"
+                    gravity="center"
+                    singleLine="true"
+                    ellipsize="end"
+                    tag="crimsonpro.ttf"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                id="@+id/llLng"
+                layout_width="match_parent"
+                layout_height="0dp"
+                layout_weight="1"
+                layout_marginTop="2dp"
+                orientation="horizontal">
+
+                <TextView
+                    id="@+id/tvLongitudeLabel"
+                    layout_width="wrap_content"
+                    layout_height="wrap_content"
+                    text="Lng: "
+                    textColor="#FF000000"
+                    gravity="center"
+                    singleLine="true"
+                    ellipsize="end"
+                    tag="crimsonpro.ttf"/>
+
+                <TextView
+                    id="@+id/tvLongitude"
+                    layout_width="wrap_content"
+                    layout_height="wrap_content"
+                    textColor="#FF000000"
+                    gravity="center"
+                    singleLine="true"
+                    ellipsize="end"
+                    tag="crimsonpro.ttf"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            id="@+id/ll2"
+            layout_width="0dp"
+            layout_height="match_parent"
+            layout_weight="0.5"
+            padding="8dp"
+            orientation="vertical"
+            gravity="center">
+
+            <ImageView
+                id="@+id/ivSmall"
+                layout_width="80px"
+                layout_height="80px"
+                tag="small.png" />
+
+            <TextView
+                id="@+id/tvDegree"
+                layout_width="wrap_content"
+                layout_height="wrap_content"
+                layout_marginTop="4dp"
+                gravity="center_vertical"
+                textSize="22sp"
+                textColor="#FF000000"
+                singleLine="true"
+                ellipsize="end"
+                tag="crimsonpro.ttf"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            id="@+id/flMap"
+            layout_width="230px"
+            layout_height="230px"
+            layout_below="@+id/tvAddress" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -52,4 +52,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(project(":cameraview"))
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
 }

@@ -13,14 +13,14 @@
         gravity="end"
         textColor="#FFFFFFFF"
         singleLine="true"
-        ellipsize="end" />
+        ellipsize="end"
+        tag="emilyscandy.ttf" />
 
-    <ImageView
-        id="@+id/ivMain"
+    <FrameLayout
+        id="@+id/flMap"
         layout_width="230px"
         layout_height="230px"
-        layout_below="@+id/tvAddress"
-        tag="main.png" />
+        layout_below="@+id/tvAddress" />
 
     <ImageView
         id="@+id/ivBg"
@@ -28,7 +28,7 @@
         layout_height="230px"
         layout_below="@+id/tvAddress"
         layout_centerInParent="true"
-        layout_toEndOf="@id/ivMain"
+        layout_toEndOf="@id/flMap"
         layout_alignParentEnd="true"
         tag="bg.png"/>
 
@@ -39,7 +39,7 @@
         layout_below="@+id/tvAddress"
         padding="8dp"
         layout_centerInParent="true"
-        layout_toEndOf="@id/ivMain"
+        layout_toEndOf="@id/flMap"
         layout_alignParentEnd="true"
         orientation="horizontal">
 
@@ -57,7 +57,8 @@
                 layout_height="wrap_content"
                 textColor="#FFFFFFFF"
                 singleLine="true"
-                ellipsize="end" />
+                ellipsize="end"
+                tag="emilyscandy.ttf"/>
 
             <LinearLayout
                 id="@+id/ll2"
@@ -81,7 +82,8 @@
                     textSize="16sp"
                     textColor="#FFFFFFFF"
                     singleLine="true"
-                    ellipsize="end" />
+                    ellipsize="end"
+                    tag="emilyscandy.ttf"/>
 
             </LinearLayout>
 
@@ -103,7 +105,8 @@
                 gravity="end|center"
                 textColor="#FFFFFFFF"
                 singleLine="true"
-                ellipsize="end" />
+                ellipsize="end"
+                tag="emilyscandy.ttf"/>
 
             <LinearLayout
                 id="@+id/ll4"
@@ -121,7 +124,8 @@
                     textColor="#FFFFFFFF"
                     gravity="center"
                     singleLine="true"
-                    ellipsize="end" />
+                    ellipsize="end"
+                    tag="emilyscandy.ttf"/>
 
                 <TextView
                     id="@+id/tvLatitude"
@@ -130,7 +134,8 @@
                     textColor="#FFFFFFFF"
                     gravity="center"
                     singleLine="true"
-                    ellipsize="end" />
+                    ellipsize="end"
+                    tag="emilyscandy.ttf"/>
 
             </LinearLayout>
 
@@ -150,7 +155,8 @@
                     textColor="#FFFFFFFF"
                     gravity="center"
                     singleLine="true"
-                    ellipsize="end" />
+                    ellipsize="end"
+                    tag="emilyscandy.ttf"/>
 
                 <TextView
                     id="@+id/tvLongitude"
@@ -159,7 +165,8 @@
                     textColor="#FFFFFFFF"
                     gravity="center"
                     singleLine="true"
-                    ellipsize="end" />
+                    ellipsize="end"
+                    tag="emilyscandy.ttf"/>
 
             </LinearLayout>
 
