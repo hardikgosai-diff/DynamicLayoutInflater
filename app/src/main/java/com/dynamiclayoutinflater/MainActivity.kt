@@ -24,7 +24,6 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 import com.otaliastudios.cameraview.frame.Frame
@@ -47,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         mapView.onCreate(savedInstanceState)
 
         initCamera()
-        initDynamicLayout("14")
+        initDynamicLayout("23")
         Handler().postDelayed({
 
         }, 3000)
@@ -87,7 +86,8 @@ class MainActivity : AppCompatActivity() {
             val tvLatitude = DynamicLayoutInflater.findViewByIdString(view, "tvLatitude")
             val tvLatitudeLabel = DynamicLayoutInflater.findViewByIdString(view, "tvLatitudeLabel")
             val tvLongitude = DynamicLayoutInflater.findViewByIdString(view, "tvLongitude")
-            val tvLongitudeLabel = DynamicLayoutInflater.findViewByIdString(view, "tvLongitudeLabel")
+            val tvLongitudeLabel =
+                DynamicLayoutInflater.findViewByIdString(view, "tvLongitudeLabel")
             val ivSmall = DynamicLayoutInflater.findViewByIdString(view, "ivSmall")
             val tvDate = DynamicLayoutInflater.findViewByIdString(view, "tvDate")
             val tvTime = DynamicLayoutInflater.findViewByIdString(view, "tvTime")
@@ -190,8 +190,10 @@ class MainActivity : AppCompatActivity() {
                 ivMarker.setImageBitmap(bitmap)
             }
             if (divider is FrameLayout) {
-                val bitmap = BitmapFactory.decodeStream(assets.open("$folder/divider.png"))
-                divider.background = BitmapDrawable(resources, bitmap)
+                if (divider.tag != null) {
+                    val bitmap = BitmapFactory.decodeStream(assets.open("$folder/${divider.tag}"))
+                    divider.background = BitmapDrawable(resources, bitmap)
+                }
             }
             if (ivBg is ImageView) {
                 ivBg.apply {
@@ -271,7 +273,7 @@ class MainActivity : AppCompatActivity() {
             fusedLocationClient.lastLocation.addOnSuccessListener { location ->
                 if (location != null) {
                     val latLng = LatLng(location.latitude, location.longitude)
-                    googleMap.addMarker(MarkerOptions().position(latLng))
+                    //googleMap.addMarker(MarkerOptions().position(latLng))
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16f))
                 } else {
                     Toast.makeText(this, "Location not found", Toast.LENGTH_SHORT).show()

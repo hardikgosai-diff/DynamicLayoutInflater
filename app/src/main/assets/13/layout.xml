@@ -148,8 +148,7 @@
         <FrameLayout
             id="@+id/flMap"
             layout_width="230px"
-            layout_height="230px"
-            layout_below="@+id/tvAddress" />
+            layout_height="230px" />
 
     </LinearLayout>
 

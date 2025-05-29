@@ -820,6 +820,14 @@ public class DynamicLayoutInflater {
                 }
             }
         });
+        viewRunnables.put("maxLines", new ViewParamRunnable() {
+            @Override
+            public void apply(View view, String value, ViewGroup parent, Map<String, String> attrs) {
+                if (view instanceof TextView) {
+                    ((TextView) view).setMaxLines(Integer.parseInt(value));
+                }
+            }
+        });
         viewRunnables.put("hint", new ViewParamRunnable() {
             @Override
             public void apply(View view, String value, ViewGroup parent, Map<String, String> attrs) {

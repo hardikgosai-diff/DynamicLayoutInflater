@@ -3,23 +3,54 @@
     layout_height="wrap_content"
     padding="8dp">
 
+    <ImageView
+        id="@+id/ivBg"
+        layout_width="match_parent"
+        layout_height="350px"
+        scaleType="fitXY"
+        tag="bg.png" />
+
+    <TextView
+        id="@+id/tvAddress"
+        layout_width="match_parent"
+        layout_height="wrap_content"
+        layout_alignBottom="@id/ivBg"
+        padding="4dp"
+        gravity="center"
+        textColor="#FFFFFFFF"
+        singleLine="true"
+        ellipsize="end"
+        tag="creteround.ttf" />
+
+    <FrameLayout
+        id="@+id/divider2"
+        layout_width="match_parent"
+        layout_height="1px"
+        layout_above="@+id/tvAddress"
+        background="#FFFFFFFF" />
+
     <LinearLayout
         id="@+id/ll"
         layout_width="match_parent"
-        layout_height="wrap_content"
+        layout_height="0dp"
+        layout_alignTop="@+id/ivBg"
+        layout_alignBottom="@+id/divider2"
         padding="8dp"
+        gravity="center"
         orientation="horizontal">
 
         <FrameLayout
             id="@+id/flMap"
             layout_width="230px"
-            layout_height="230px"/>
+            layout_height="230px" />
 
         <LinearLayout
             id="@+id/ll1"
             layout_width="0dp"
             layout_height="match_parent"
             layout_weight="1"
+            layout_marginStart="8dp"
+            layout_marginEnd="8dp"
             orientation="vertical">
 
             <LinearLayout
@@ -99,13 +130,14 @@
                 layout_height="1px"
                 layout_marginTop="2dp"
                 layout_marginBottom="2dp"
-                background="#FFFFFFFF"/>
+                background="#FFFFFFFF" />
 
             <TextView
                 id="@+id/tvDate"
                 layout_width="match_parent"
                 layout_height="0dp"
                 layout_weight="1"
+                gravity="center"
                 textColor="#FFFFFFFF"
                 singleLine="true"
                 ellipsize="end"
@@ -143,18 +175,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <TextView
-        id="@+id/tvAddress"
-        layout_width="match_parent"
-        layout_height="wrap_content"
-        layout_below="@+id/ll"
-        padding="4dp"
-        layout_weight="1"
-        gravity="center"
-        textColor="#FFFFFFFF"
-        singleLine="true"
-        ellipsize="end"
-        tag="creteround.ttf" />
 
 </RelativeLayout>

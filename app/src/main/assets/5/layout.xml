@@ -75,7 +75,7 @@
         layout_height="1px"
         layout_marginTop="8dp"
         layout_below="@id/tvDate"
-        tag="dotted_line.png" />
+        tag="divider.png" />
 
     <LinearLayout
         layout_width="wrap_content"
