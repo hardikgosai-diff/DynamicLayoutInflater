@@ -1,0 +1,52 @@
+<RelativeLayout 
+    layout_width="wrap_content"
+    layout_height="wrap_content"
+    padding="8dp">
+
+    <ImageView
+        id="@+id/ivMain"
+        layout_width="300px"
+        layout_height="168px"
+        tag="main.png" />
+
+    <LinearLayout
+        id="@+id/ll"
+        layout_width="wrap_content"
+        layout_height="wrap_content"
+        layout_marginTop="8dp"
+        orientation="vertical"
+        layout_below="@id/ivMain">
+
+        <TextView
+            id="@+id/tvTime"
+            layout_width="match_parent"
+            layout_height="wrap_content"
+            gravity="start|center"
+            textColor="#FFFFFFFF"
+            singleLine="true"
+            ellipsize="end"
+            tag="courgette.ttf"/>
+
+        <TextView
+            id="@+id/tvDate"
+            layout_width="match_parent"
+            layout_height="wrap_content"
+            gravity="start|center"
+            textColor="#FFFFFFFF"
+            singleLine="true"
+            ellipsize="end"
+            tag="courgette.ttf"/>
+
+        <TextView
+            id="@+id/tvAddress"
+            layout_width="match_parent"
+            layout_height="wrap_content"
+            gravity="start|center"
+            textColor="#FFFFFFFF"
+            singleLine="true"
+            ellipsize="end"
+            tag="courgette.ttf"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

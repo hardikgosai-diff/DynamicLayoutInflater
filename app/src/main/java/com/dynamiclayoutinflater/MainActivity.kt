@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         mapView.onCreate(savedInstanceState)
 
         initCamera()
-        initDynamicLayout("23")
+        initDynamicLayout("28")
         Handler().postDelayed({
 
         }, 3000)
